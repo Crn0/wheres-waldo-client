@@ -1,0 +1,4 @@
+.header_dark {
+  background-color: var(--header-dark-bg);
+  box-shadow: 0px 1px 1px var(--header-dark-box);
+}

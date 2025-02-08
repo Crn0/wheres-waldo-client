@@ -1,0 +1,8 @@
+.dark {
+  background-color: var(--footer-dark-bg);
+  box-shadow: 0px 1px 1px var(--footer-dark-box);
+}
+
+.margin_top_auto {
+  margin-top: auto;
+}
