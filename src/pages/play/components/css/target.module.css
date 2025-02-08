@@ -1,0 +1,27 @@
+img {
+  min-height: 100%;
+}
+
+.found {
+  border: 1px solid red;
+}
+
+.diag {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+}
+.diag_1 {
+  border: 1px solid red;
+  transform: translate3d(-50%, -50%, 0) rotate(45deg);
+}
+.diag_2 {
+  border: 1px solid red;
+  transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+}
+
+.img_target {
+  width: 60px;
+  position: relative;
+}

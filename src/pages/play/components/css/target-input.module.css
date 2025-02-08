@@ -1,0 +1,28 @@
+.cross {
+  max-width: 250px;
+  padding: 1.5rem;
+  background-color: red;
+  position: absolute;
+  z-index: 1;
+  background: linear-gradient(
+      to top left,
+      rgba(242, 3, 3, 0) 0%,
+      rgba(238, 8, 8, 0) calc(50% - 0.8px),
+      rgba(232, 6, 6) 50%,
+      rgba(234, 7, 7, 0) calc(50% + 0.8px),
+      rgba(223, 8, 8, 0) 100%
+    ),
+    linear-gradient(
+      to top right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) calc(50% - 0.8px),
+      rgba(232, 6, 6) 50%,
+      rgba(0, 0, 0, 0) calc(50% + 0.8px),
+      rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.found {
+  position: relative;
+  border: 1px solid red;
+}

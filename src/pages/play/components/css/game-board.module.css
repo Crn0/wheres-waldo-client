@@ -1,0 +1,54 @@
+.overlay {
+  background-color: var(--overlay-bg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.character_error {
+  z-index: 2;
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  border: 1px solid red;
+  background-color: red;
+  border-radius: 5rem;
+  color: white;
+  padding: 1rem;
+  animation: fade-out 2000ms;
+  animation-fill-mode: forwards;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid_center {
+  place-content: center;
+  place-items: center;
+}
+
+.gap_1rem {
+  gap: 1rem;
+}
+
+.board {
+  position: relative;
+  height: 100%;
+}
+
+.board_img {
+  cursor: crosshair;
+  height: 100%;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
