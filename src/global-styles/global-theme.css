@@ -1,0 +1,29 @@
+:root {
+  --header-dark-bg: var(--dark);
+  --header-dark-box-shadow: var(--pure-dark);
+  --header-link-clr: var(--white);
+  --header-clr: var(--white);
+
+  --modal-dark-bg: var(--dark);
+  --tb-clr: var(--white);
+
+  --b-shadow: var(--b-shadow-colored);
+  --b-shadow-colored: 0 10px 15px -3px var(--teal-07);
+  --b-shadow-border-clr: var(--teal-07);
+  --b-ring-offset-shadow: 0 0 #0000;
+  --b-ring-shadow: 0 0 #0000;
+
+  --footer-dark-bg: var(--dark);
+  --footer-dark-box-shadow: var(--pure-dark);
+  --footer-items-color: var(--white);
+
+  --fig-caption-bg: var(--dark);
+  --fig-caption-clr: var(--white);
+
+  --overlay-bg: rgb(0, 0, 0, 0.9);
+  --modal-overlay-bg: rgb(0, 0, 0, 0.5);
+
+  --paragraph-clr: #ffffff;
+  --overlay-modal-border-clr: #ffffff;
+  --error-color: #dc143c;
+}
