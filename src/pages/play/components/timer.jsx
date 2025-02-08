@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { DateTime } from 'luxon';
-import useInterval from '../../../hooks/user-interval';
+import useInterval from '../../../hooks/use-interval';
 import helper from '../../../helpers/index';
 
 export default function Timer({ startDate, isRunning, styles = '' }) {
