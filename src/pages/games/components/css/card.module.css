@@ -1,0 +1,7 @@
+.figcaption {
+  background-color: var(--fig-caption-bg);
+  color: var(--fig-caption-clr);
+  font: italic smaller sans-serif;
+  padding: 3px;
+  text-align: center;
+}
