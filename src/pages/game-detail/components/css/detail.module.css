@@ -1,0 +1,136 @@
+.overlay {
+  background-color: var(--overlay-bg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.modal_overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--modal-overlay-bg);
+}
+
+.modal_overlay_top,
+.modal_overlay_bottom {
+  flex: 0.2;
+}
+
+.modal_overlay_middle {
+  align-self: center;
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h1 {
+  text-transform: capitalize;
+}
+
+.modal_btn {
+  padding: 0.5rem;
+  border-radius: 10%;
+  max-height: 50px;
+  color: var(--modal-form-btn-color);
+
+  border: 1px solid var(--modal-form-btn-border-color);
+  box-shadow: var(--modal-form-btn-active-shadow);
+}
+
+.modal_btn:hover {
+  color: var(--modal-form-btn-hover-color);
+  background-color: var(--modal-form-btn-hover-bg);
+}
+
+.button:disabled {
+  color: var(--modal-btn-disabled-color);
+  background-color: var(--modal-btn-disabled-bg);
+  border-color: var(--modal-btn-disabled-border-color);
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.button:hover,
+.button:focus {
+  color: var(--modal-btn-hover-color);
+  background-color: var(--modal-btn-hover-bg);
+  border-color: var(--modal-btn-hover-border-color);
+}
+
+.paragraph_color {
+  color: var(--paragraph-clr);
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.flex_center {
+  place-content: center;
+  place-items: center;
+}
+
+.flex_1 {
+  flex: 1;
+}
+
+.content_center {
+  justify-content: center;
+}
+
+.flex_end {
+  justify-content: flex-end;
+}
+
+.self_center {
+  justify-self: center;
+}
+
+.bg_cover {
+  background-size: cover;
+}
+
+.no_repeat {
+  background-repeat: no-repeat;
+}
+
+.modal_width {
+  width: 95%;
+}
+
+.m_bottom_1 {
+  margin-bottom: 1rem;
+}
+
+.w_35 {
+  width: 35%;
+}
+
+.h_80 {
+  height: 80%;
+}
+
+.w_80 {
+  width: 80%;
+}
+
+@media (min-width: 768px) {
+  .modal_width {
+    width: 45%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .modal_width {
+    width: 25%;
+  }
+}
