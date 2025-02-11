@@ -12,7 +12,6 @@ import style from './css/index.module.css';
 function Wrapper() {
   const fetcher = useFetcher();
   const [error, leaderBoards] = useAsyncValue();
-
   const [activeCardIndex, setActiveCardIndex] = useState(0);
 
   const fetcherError = fetcher.data?.[0];
@@ -113,6 +112,16 @@ function Wrapper() {
                   </tr>
                 );
 
+              if (fetcherData.players.length === 0) {
+                return (
+                  <tr>
+                    <td colSpan={4} className={`${style.text_center}`}>
+                      There&apos;s no data available
+                    </td>
+                  </tr>
+                );
+              }
+
               return (
                 <>
                   {fetcherData.players.map((player, i) => {
@@ -160,7 +169,6 @@ export default function LeaderBoards() {
           </Await>
         </Suspense>
       </main>
-
       <Footer styles={`${style.flex} ${style.content_center} ${style.padd_1}`}>
         <Link
           to='https://github.com/Crn0/wheres-waldo-client'
