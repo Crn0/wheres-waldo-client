@@ -123,6 +123,10 @@
   width: 80%;
 }
 
+.gap_1 {
+  gap: 1rem;
+}
+
 @media (min-width: 768px) {
   .modal_width {
     width: 45%;

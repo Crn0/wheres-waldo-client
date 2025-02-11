@@ -27,9 +27,15 @@ export default function Detail({ game }) {
             </div>
           </div>
 
-          <div className={`${style.grid} ${style.content_center} ${style.m_bottom_1}`}>
+          <div
+            className={`${style.flex} ${style.gap_1} ${style.content_center} ${style.m_bottom_1}`}
+          >
             <Link to={`/play?game=${game.title}`} styles={`${style.modal_btn}`}>
               Play game
+            </Link>
+
+            <Link to='/' styles={`${style.modal_btn}`}>
+              Home
             </Link>
           </div>
         </div>
