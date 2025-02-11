@@ -1,4 +1,4 @@
-import { Await, useAsyncValue, useLoaderData, Outlet, useParams } from 'react-router-dom';
+import { Await, useAsyncValue, useLoaderData } from 'react-router-dom';
 import { Suspense } from 'react';
 import { VscGithubInverted } from 'react-icons/vsc';
 import Header from '../../components/header';
@@ -10,42 +10,26 @@ import style from './css/index.module.css';
 
 function Wrapper() {
   const [_, games] = useAsyncValue();
-  const { title } = useParams();
 
   return (
-    <>
+    <div
+      className={`${style.flex} ${style.flex_center} ${style.flex_wrap} ${style.gap_1} ${style.margin_top_2} ${style.margin_bottom_2}`}
+    >
       {(() => {
-        if (title) return <Outlet />;
+        if (games.length === 0) return <p>There are no games.</p>;
 
-        return (
-          <div
-            className={`${style.flex} ${style.flex_center} ${style.flex_wrap} ${style.gap_1} ${style.margin_top_2} ${style.margin_bottom_2}`}
-          >
-            {(() => {
-              if (games.length === 0) return <p>There are no games.</p>;
-
-              return games.map((game) => (
-                <div key={game.id} className={` ${style.card}`}>
-                  <Card game={game} />
-                </div>
-              ));
-            })()}
+        return games.map((game) => (
+          <div key={game.id} className={` ${style.card}`}>
+            <Card game={game} />
           </div>
-        );
+        ));
       })()}
-    </>
+    </div>
   );
 }
 
 export default function Games() {
   const { games } = useLoaderData();
-  const { title } = useParams();
-
-  const data = !title
-    ? games
-    : new Promise((res) => {
-        res([null, null]);
-      });
 
   return (
     <div className={`${style.app}`}>
@@ -59,8 +43,8 @@ export default function Games() {
         </Link>
       </Header>
       <main>
-        <Suspense fallback={!title && <Spinner />}>
-          <Await resolve={data}>
+        <Suspense fallback={<Spinner />}>
+          <Await resolve={games}>
             <Wrapper />
           </Await>
         </Suspense>

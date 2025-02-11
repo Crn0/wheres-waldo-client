@@ -20,16 +20,14 @@ const routes = [
         loader: loaders.games,
         shouldRevalidate: () => false,
         element: <Games />,
-        children: [
-          {
-            path: ':title',
-            loader: loaders.game,
-            shouldRevalidate: () => false,
-            element: <GameDetail />,
-          },
-        ],
       },
     ],
+  },
+  {
+    path: '/games/:title',
+    loader: loaders.game,
+    shouldRevalidate: () => false,
+    element: <GameDetail />,
   },
   {
     path: '/play',
@@ -41,7 +39,6 @@ const routes = [
   {
     path: '/leader-boards',
     loader: loaders.leaderBoard,
-    // action: actions.gamePlay,
     shouldRevalidate: () => false,
     element: <LeaderBoards />,
   },
