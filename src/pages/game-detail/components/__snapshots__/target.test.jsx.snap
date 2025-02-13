@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Target > renders the game information 1`] = `
+<div>
+  <div
+    class="_flex_a195c1 _items_center_a195c1 _gap_1_a195c1"
+  >
+    <div
+      class="_img_target_a195c1"
+    >
+      <img
+        alt="raft-man"
+        src="https://res.cloudinary.com/dhtzg8kkq/image/upload/v1739172514/dev/wheres_waldo/dragon-island/raft-man_i1jqdl.png"
+      />
+    </div>
+    <span>
+      raft-man
+    </span>
+  </div>
+</div>
+`;

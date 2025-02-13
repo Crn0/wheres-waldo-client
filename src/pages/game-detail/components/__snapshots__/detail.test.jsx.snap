@@ -1,0 +1,102 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Detail > renders the game information 1`] = `
+<div>
+  <div
+    class="_overlay_32ae86 _flex_32ae86 _flex_center_32ae86"
+  >
+    <div
+      class="_flex_32ae86 _modal_width_32ae86 _h_80_32ae86 _flex_end_32ae86 _bg_cover_32ae86 _no_repeat_32ae86"
+      style="background-image: url(https://res.cloudinary.com/dhtzg8kkq/image/upload/v1739172513/dev/wheres_waldo/dragon-island/dragon-island-wheres-waldo_lwnw1r.webp);"
+    >
+      <div
+        class="_modal_overlay_32ae86 _w_80_32ae86 _paragraph_color_32ae86"
+      >
+        <div
+          class="_modal_overlay_top_32ae86 _grid_32ae86"
+        >
+          <h1
+            class="_h1_32ae86"
+          >
+            dragon-island
+          </h1>
+          <span
+            class="_self_center_32ae86"
+          >
+            Art by 
+            <cite>
+              @gozz_sss
+            </cite>
+          </span>
+        </div>
+        <div
+          class="_modal_overlay_middle_32ae86"
+        >
+          <h2>
+            Targets
+          </h2>
+          <div
+            class="_flex_1_32ae86 _grid_32ae86"
+          >
+            <div
+              class="_flex_a195c1 _items_center_a195c1 _gap_1_a195c1"
+            >
+              <div
+                class="_img_target_a195c1"
+              >
+                <img
+                  alt="raft-man"
+                  src="https://res.cloudinary.com/dhtzg8kkq/image/upload/v1739172514/dev/wheres_waldo/dragon-island/raft-man_i1jqdl.png"
+                />
+              </div>
+              <span>
+                raft-man
+              </span>
+            </div>
+            <div
+              class="_flex_a195c1 _items_center_a195c1 _gap_1_a195c1"
+            >
+              <div
+                class="_img_target_a195c1"
+              >
+                <img
+                  alt="cats"
+                  src="https://res.cloudinary.com/dhtzg8kkq/image/upload/v1739172516/dev/wheres_waldo/dragon-island/cats_mwtwa7.png"
+                />
+              </div>
+              <span>
+                cats
+              </span>
+            </div>
+            <div
+              class="_flex_a195c1 _items_center_a195c1 _gap_1_a195c1"
+            >
+              <div
+                class="_img_target_a195c1"
+              >
+                <img
+                  alt="sleeping-dragon"
+                  src="https://res.cloudinary.com/dhtzg8kkq/image/upload/v1739172516/dev/wheres_waldo/dragon-island/sleeping-dragon_xx697n.png"
+                />
+              </div>
+              <span>
+                sleeping-dragon
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="_grid_32ae86 _content_center_32ae86 _m_bottom_1_32ae86"
+        >
+          <a
+            class="_modal_btn_32ae86"
+            href="/play?game=dragon-island"
+          >
+            Play game
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
