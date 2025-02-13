@@ -69,7 +69,13 @@ function Wrapper({ gameSessionData }) {
               <fetcher.Form method='POST'>
                 <Input type='hidden' name='gameId' value={game.id} autoComplete='off' />
                 <Input type='hidden' name='intent' value='game-session:create' autoComplete='off' />
-                <Button type='submit' size='sm' styles={`${style.button}`} disabled={isSubmitting}>
+                <Button
+                  type='submit'
+                  size='sm'
+                  styles={`${style.button}`}
+                  disabled={isSubmitting}
+                  testId='btn_start'
+                >
                   {!isSubmitting ? <span>start game</span> : <Spinner />}
                 </Button>
               </fetcher.Form>
