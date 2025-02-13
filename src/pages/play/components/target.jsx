@@ -3,7 +3,10 @@ import style from './css/target.module.css';
 
 export default function Target({ target, children }) {
   return (
-    <div className={`${style.img_target} ${target.found ? style.found : ''}`}>
+    <div
+      data-testid={`found_${target.name}`}
+      className={`${style.img_target} ${target.found ? style.found : ''}`}
+    >
       {(() => {
         if (!target.found) return null;
 
