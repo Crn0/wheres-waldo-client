@@ -103,6 +103,7 @@ export default function GameBoard({ gameSession, targets, setTargets, allTargets
         style={{ position: 'relative' }}
         role='button'
         aria-label='board'
+        name='board'
         tabIndex={0}
         onKeyDown={() => {}}
         onClick={(e) => {
@@ -113,7 +114,7 @@ export default function GameBoard({ gameSession, targets, setTargets, allTargets
         <img
           ref={boardRef}
           src={gameSession.game.board.url}
-          alt={gameSession.game.title}
+          alt={`${gameSession.game.title}_board`}
           style={{ position: 'relative' }}
         />
         {targets?.map((target) => {
