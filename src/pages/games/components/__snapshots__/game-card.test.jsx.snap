@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Game card > renders the game image 1`] = `
+<div>
+  <figure>
+    <a
+      class=""
+      href="/games/dragon-island"
+    >
+      <img
+        alt="dragon-island"
+        src="https://res.cloudinary.com/dhtzg8kkq/image/upload/v1739172513/dev/wheres_waldo/dragon-island/dragon-island-wheres-waldo_lwnw1r.webp"
+      />
+      <figcaption
+        class="_figcaption_35bc57"
+      >
+        dragon-island
+      </figcaption>
+    </a>
+  </figure>
+</div>
+`;
