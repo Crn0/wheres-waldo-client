@@ -86,13 +86,19 @@ exports[`Detail > renders the game information 1`] = `
           </div>
         </div>
         <div
-          class="_grid_32ae86 _content_center_32ae86 _m_bottom_1_32ae86"
+          class="_flex_32ae86 _gap_1_32ae86 _content_center_32ae86 _m_bottom_1_32ae86"
         >
           <a
             class="_modal_btn_32ae86"
             href="/play?game=dragon-island"
           >
             Play game
+          </a>
+          <a
+            class="_modal_btn_32ae86"
+            href="/"
+          >
+            Home
           </a>
         </div>
       </div>

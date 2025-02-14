@@ -5,6 +5,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import LeaderBoards from '.';
 import dataTest from './date-test';
+import sleep from '../../helpers/sleep';
 
 const mockLoader = vi.fn();
 let currLeaderBoardId;
@@ -32,30 +33,30 @@ const getLeaderBoards = (() => ({
 
 const getCurrentLeaderBoard = (() => ({
   res: async (id, delay = 1000) => {
-    await new Promise((res) => {
-      setTimeout(res, delay);
-    });
-
     currLeaderBoardId = Number(id);
 
-    const leaderBoard = dataTest.leaderBoardScores.reduce(
-      (prev, currLeaderBoard) =>
-        currLeaderBoard.id === currLeaderBoardId ? currLeaderBoard : prev,
-      {},
-    );
+    try {
+      await sleep(delay);
 
-    return new Promise((res, _) => {
-      res([null, leaderBoard]);
-    });
+      const leaderBoard = dataTest.leaderBoardScores.reduce(
+        (prev, currLeaderBoard) =>
+          currLeaderBoard.id === currLeaderBoardId ? currLeaderBoard : prev,
+        {},
+      );
+
+      return [null, leaderBoard];
+    } catch (e) {
+      return [e, null];
+    }
   },
   rej: async (error, delay = 1000) => {
-    await new Promise((_, rej) => {
-      setTimeout(rej, delay);
-    });
+    try {
+      await sleep(delay);
 
-    return new Promise((_, rej) => {
-      rej(error);
-    });
+      throw error;
+    } catch (e) {
+      return [e, null];
+    }
   },
 }))();
 

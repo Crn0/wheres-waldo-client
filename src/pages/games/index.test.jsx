@@ -3,27 +3,28 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import Games from '.';
 import dataTest from './data-test';
+import sleep from '../../helpers/sleep';
 
 const mockLoader = vi.fn();
 
 const mockGetGames = (() => ({
-  res: async (delay = 1000, error = null, data = dataTest.gameList) => {
-    await new Promise((res) => {
-      setTimeout(res, delay);
-    });
+  res: async (data, delay = 1000) => {
+    try {
+      await sleep(delay);
 
-    return new Promise((res, _) => {
-      res([error, data]);
-    });
+      return [null, data];
+    } catch (e) {
+      return [e, null];
+    }
   },
   rej: async (error, delay = 1000) => {
-    await new Promise((_, rej) => {
-      setTimeout(rej, delay);
-    });
+    try {
+      await sleep(delay);
 
-    return new Promise((_, rej) => {
-      rej(error);
-    });
+      throw error;
+    } catch (e) {
+      return [e, null];
+    }
   },
 }))();
 
@@ -47,7 +48,7 @@ beforeEach(() => {
 describe('Game route', () => {
   it('renders a spinner when the data is fetching', async () => {
     mockLoader.mockImplementation(async () => {
-      const games = mockGetGames.res(0);
+      const games = mockGetGames.res(dataTest.gameList, 0);
 
       return { games };
     });
@@ -66,7 +67,7 @@ describe('Game route', () => {
 
   it('renders the game list, header and footer on a successful fetch', async () => {
     mockLoader.mockImplementation(async () => {
-      const games = mockGetGames.res(0);
+      const games = mockGetGames.res(dataTest.gameList, 0);
 
       return { games };
     });
@@ -88,7 +89,7 @@ describe('Game route', () => {
 
   it('renders an alternate text on a successful fetch but there is no game list in the db', async () => {
     mockLoader.mockImplementation(() => {
-      const games = mockGetGames.res(0, null, []);
+      const games = mockGetGames.res([], 0);
 
       return { games };
     });
