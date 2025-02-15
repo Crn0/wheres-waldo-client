@@ -5,7 +5,7 @@ const handleModalState = (cb, allTargetsAreFound) => (e) => {
   const left = e.clientX - rect.left;
   const top = e.clientY - rect.top;
 
-  return cb((prev) => ({ ...prev, left, top, on: true }));
+  return cb((prev) => ({ ...prev, left, top: top - 200, on: true }));
 };
 
 export default handleModalState;
