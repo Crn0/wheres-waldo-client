@@ -1,3 +1,11 @@
 .modal {
   background-color: var(--modal-dark-bg);
+  padding: 2rem;
+}
+
+@media (max-width: 980px) {
+  .modal {
+    background-color: var(--modal-dark-bg);
+    padding: 1rem;
+  }
 }

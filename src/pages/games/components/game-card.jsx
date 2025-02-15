@@ -4,7 +4,7 @@ import style from './css/card.module.css';
 
 export default function Card({ game }) {
   return (
-    <figure>
+    <figure className={`${style.h_100}`}>
       <Link to={`/games/${game.title}`}>
         <img src={game.board.url} alt={game.title} />
         <figcaption className={`${style.figcaption}`}>{game.title}</figcaption>

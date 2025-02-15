@@ -114,8 +114,12 @@
   z-index: 1;
 }
 
-@media (max-width: 490px) {
+@media (max-width: 980px) {
   .h_100 {
     height: 100%;
+  }
+
+  .modal_form_padd_1 {
+    padding: 1rem;
   }
 }

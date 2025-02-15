@@ -13,7 +13,7 @@ function Wrapper() {
 
   return (
     <div
-      className={`${style.flex} ${style.flex_center} ${style.flex_wrap} ${style.gap_1} ${style.margin_top_2} ${style.margin_bottom_2}`}
+      className={`${style.flex} ${style.content_center} ${style.flex_wrap} ${style.gap_2} ${style.margin_top_2} ${style.margin_bottom_2}`}
     >
       {(() => {
         if (games.length === 0) return <p>There are no games.</p>;

@@ -23,7 +23,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 4rem;
+  padding: 4rem;
 }
 
 .board {
@@ -172,11 +173,13 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    height: 500px;
+    padding: 2rem;
   }
 
   .board {
     width: 30%;
+    height: 100%;
   }
 }
 

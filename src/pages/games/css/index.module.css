@@ -6,6 +6,7 @@
 
 .card {
   width: 250px;
+  min-height: 100%;
   transition: transform 0.9s ease-out 0.1s;
 }
 
@@ -42,6 +43,10 @@
   align-items: center;
 }
 
+.content_center {
+  justify-content: center;
+}
+
 .space_around {
   justify-content: space-around;
 }
@@ -52,6 +57,10 @@
 
 .gap_1 {
   gap: 1rem;
+}
+
+.gap_2 {
+  gap: 2rem;
 }
 
 .padd_1 {
