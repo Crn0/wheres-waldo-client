@@ -20,7 +20,6 @@ export default function GameBoard({ gameSession, targets, setTargets, allTargets
     zIndex: 10,
     top: 0,
     left: 0,
-    padding: '2rem',
   });
 
   const [position, setPosition] = useState({

@@ -11,7 +11,6 @@ export default function GameModal({ done, modalState, setModalState, children })
     zIndex: modalState.zIndex,
     top: modalState.top,
     left: modalState.left,
-    padding: modalState.padding,
   };
 
   const close = helpers.handleCloseModal(setModalState);
