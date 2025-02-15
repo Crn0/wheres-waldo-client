@@ -5,7 +5,6 @@ import { DateTime } from 'luxon';
 import Input from '../../../components/ui/input';
 import Button from '../../../components/ui/button';
 import Spinner from '../../../components/ui/spinner';
-import helper from '../../../helpers/index';
 import style from './css/game-complete.module.css';
 
 export default function GameComplete({ gameSession }) {
