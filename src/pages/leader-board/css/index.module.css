@@ -130,16 +130,20 @@
   padding: 2rem;
 }
 
-.w_350px {
-  max-width: 350px;
-}
-
 .margin_top_10per {
   margin-top: 10%;
 }
 
+.h_100dvh {
+  height: 100dvh;
+}
+
 .w_100 {
   width: 100%;
+}
+
+.w_350px {
+  max-width: 350px;
 }
 
 .w_90 {
