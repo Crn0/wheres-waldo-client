@@ -103,7 +103,10 @@ function Wrapper() {
                 );
               }
 
-              if (!fetcherData && (fetcher.state === 'loading' || fetcher.state === 'idle'))
+              if (
+                (!fetcherData && (fetcher.state === 'loading' || fetcher.state === 'idle')) ||
+                fetcher.state === 'loading'
+              )
                 return (
                   <tr>
                     <td colSpan={4} className={`${style.text_center}`}>
