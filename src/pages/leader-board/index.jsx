@@ -52,114 +52,116 @@ function Wrapper() {
           );
         }
 
-        return (<>
-          <div>
-            <h1 className={`${style.text_center}`}>Leader Board</h1>
-            <div className={`${style.boards_container} `}>
-              {leaderBoards.map((leaderBoard, index) => (
-                <Button
-                  key={leaderBoard.id}
-                  type='button'
-                  size='sm'
-                  styles={`${style.board} ${style.bg_none}`}
-                  onClick={handleClick(leaderBoard.id, index)}
-                >
-                  <img
-                    className={`${style.image_shape} ${index === activeCardIndex ? style.active_img : ''}`}
-                    src={leaderBoard.game.board.url}
-                    alt={leaderBoard.game.title}
-                  />
-                </Button>
-              ))}
+        return (
+          <>
+            <div>
+              <h1 className={`${style.text_center}`}>Leader Board</h1>
+              <div className={`${style.boards_container} `}>
+                {leaderBoards.map((leaderBoard, index) => (
+                  <Button
+                    key={leaderBoard.id}
+                    type='button'
+                    size='sm'
+                    styles={`${style.board} ${style.bg_none}`}
+                    onClick={handleClick(leaderBoard.id, index)}
+                  >
+                    <img
+                      className={`${style.image_shape} ${index === activeCardIndex ? style.active_img : ''}`}
+                      src={leaderBoard.game.board.url}
+                      alt={leaderBoard.game.title}
+                    />
+                  </Button>
+                ))}
+              </div>
             </div>
-          </div>
-          <div>
-            <h2
-              className={`${style.text_capitalize} ${style.text_center} ${style.m_top_2} ${style.clr_white}`}
-            >
-              {leaderBoards[activeCardIndex].game.title}
-            </h2>
+            <div>
+              <h2
+                className={`${style.text_capitalize} ${style.text_center} ${style.m_top_2} ${style.clr_white}`}
+              >
+                {leaderBoards[activeCardIndex].game.title}
+              </h2>
 
-            <table className={`${style.table} ${style.m_bottom_2}`}>
-              <colgroup>
-                <col span='1' />
-                <col span='1' />
-                <col span='1' />
-                <col span='1' />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope='col' id='rank' className={`${style.th}`}>
-                    <span>Rank</span>
-                  </th>
-                  <th scope='col' id='player' className={`${style.th}`}>
-                    <span>Player</span>
-                  </th>
-                  <th scope='col' id='score' className={`${style.th}`}>
-                    <span>Score</span>
-                  </th>
-                  <th scope='col' id='start_date' className={`${style.th}`}>
-                    <span>Start Date</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {(() => {
-                  if (fetcherError) {
+              <table className={`${style.table} ${style.m_bottom_2}`}>
+                <colgroup>
+                  <col span='1' />
+                  <col span='1' />
+                  <col span='1' />
+                  <col span='1' />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope='col' id='rank' className={`${style.th}`}>
+                      <span>Rank</span>
+                    </th>
+                    <th scope='col' id='player' className={`${style.th}`}>
+                      <span>Player</span>
+                    </th>
+                    <th scope='col' id='score' className={`${style.th}`}>
+                      <span>Score</span>
+                    </th>
+                    <th scope='col' id='start_date' className={`${style.th}`}>
+                      <span>Start Date</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(() => {
+                    if (fetcherError) {
+                      return (
+                        <tr>
+                          <td colSpan={4} className={`${style.text_center}`}>
+                            {fetcherError?.message}
+                          </td>
+                        </tr>
+                      );
+                    }
+
+                    if (
+                      (!fetcherData && (fetcher.state === 'loading' || fetcher.state === 'idle')) ||
+                      fetcher.state === 'loading'
+                    )
+                      return (
+                        <tr>
+                          <td colSpan={4} className={`${style.text_center}`}>
+                            Fetching leader-board
+                          </td>
+                        </tr>
+                      );
+
+                    if (fetcherData.players.length === 0) {
+                      return (
+                        <tr>
+                          <td colSpan={4} className={`${style.text_center}`}>
+                            There&apos;s no data available
+                          </td>
+                        </tr>
+                      );
+                    }
+
                     return (
-                      <tr>
-                        <td colSpan={4} className={`${style.text_center}`}>
-                          {fetcherError?.message}
-                        </td>
-                      </tr>
+                      <>
+                        {fetcherData.players.map((player, i) => {
+                          const rank = i + 1;
+                          const date = DateTime.fromISO(player?.sessionStart);
+                          const humanReadable = date.toLocaleString(DateTime.DATE_MED);
+
+                          return (
+                            <tr key={player.id}>
+                              <td className={`${style.td}`}>{rank}</td>
+                              <td className={`${style.td}`}>{player.username}</td>
+                              <td className={`${style.td}`}>{`${player.time}s`}</td>
+                              <td className={`${style.td}`}>{humanReadable}</td>
+                            </tr>
+                          );
+                        })}
+                      </>
                     );
-                  }
-
-                  if (
-                    (!fetcherData && (fetcher.state === 'loading' || fetcher.state === 'idle')) ||
-                    fetcher.state === 'loading'
-                  )
-                    return (
-                      <tr>
-                        <td colSpan={4} className={`${style.text_center}`}>
-                          Fetching leader-board
-                        </td>
-                      </tr>
-                    );
-
-                  if (fetcherData.players.length === 0) {
-                    return (
-                      <tr>
-                        <td colSpan={4} className={`${style.text_center}`}>
-                          There&apos;s no data available
-                        </td>
-                      </tr>
-                    );
-                  }
-
-                  return (
-                    <>
-                      {fetcherData.players.map((player, i) => {
-                        const rank = i + 1;
-                        const date = DateTime.fromISO(player?.sessionStart);
-                        const humanReadable = date.toLocaleString(DateTime.DATE_MED);
-
-                        return (
-                          <tr key={player.id}>
-                            <td className={`${style.td}`}>{rank}</td>
-                            <td className={`${style.td}`}>{player.username}</td>
-                            <td className={`${style.td}`}>{`${player.time}s`}</td>
-                            <td className={`${style.td}`}>{humanReadable}</td>
-                          </tr>
-                        );
-                      })}
-                    </>
-                  );
-                })()}
-              </tbody>
-            </table>
-          </div>
-        </>)();
+                  })()}
+                </tbody>
+              </table>
+            </div>
+          </>
+        );
       })()}
     </div>
   );
