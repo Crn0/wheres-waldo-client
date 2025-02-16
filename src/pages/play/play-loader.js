@@ -15,8 +15,6 @@ const getSession = async (request) => {
 
     if (err) throw err;
 
-    // await new Promise((res) => setTimeout(res, 100000));
-
     return [null, data];
   } catch (e) {
     if (e instanceof APIError || e instanceof FieldError) return [e, null];
@@ -46,6 +44,11 @@ const getGame = async (request, searchParams) => {
 export default async function loader({ request }) {
   const url = new URL(request.url);
   const searchParams = new URLSearchParams(url.search);
+  const game = searchParams.get('game');
+
+  if (game.toLocaleLowerCase() === 'complete') {
+    return { gameSessionData: await getSession(request) };
+  }
 
   const currentGameData = await getGame(request, searchParams);
   const gameSessionData = getSession(request);

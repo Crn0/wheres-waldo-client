@@ -38,7 +38,7 @@ export default function GameComplete({ gameSession }) {
     }
 
     if (fetcher.state === 'idle' && !fetcher.data) {
-      fetcher.load(`/play?game=${gameSession.game.title}`);
+      fetcher.load('/play?game=complete');
     }
   }, [fetcher, gameSession.game.title]);
 
