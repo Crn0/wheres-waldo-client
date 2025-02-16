@@ -163,7 +163,7 @@ export default function LeaderBoards() {
         </Link>
       </Header>
       <main>
-        <Suspense fallback={<Spinner />}>
+        <Suspense fallback={<Spinner styles={`${style.spinner}`} />}>
           <Await resolve={leaderBoards}>
             <Wrapper />
           </Await>

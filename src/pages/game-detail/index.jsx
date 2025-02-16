@@ -25,7 +25,7 @@ export default function Game() {
   const { game } = useLoaderData();
 
   return (
-    <Suspense fallback={<Spinner />}>
+    <Suspense fallback={<Spinner styles={`${style.spinner}`} />}>
       <Await resolve={game}>
         <Wrapper />
       </Await>

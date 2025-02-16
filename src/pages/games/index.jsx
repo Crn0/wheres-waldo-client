@@ -43,7 +43,7 @@ export default function Games() {
         </Link>
       </Header>
       <main>
-        <Suspense fallback={<Spinner />}>
+        <Suspense fallback={<Spinner styles={`${style.spinner}`} />}>
           <Await resolve={games}>
             <Wrapper />
           </Await>

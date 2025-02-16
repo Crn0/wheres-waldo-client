@@ -130,7 +130,7 @@ export default function Game() {
 
   return (
     <div className={`${style.app}`}>
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Spinner styles={`${style.spinner}`} />}>
         <Await resolve={currentGameData}>
           <Wrapper gameSessionData={gameSessionData} />
         </Await>
