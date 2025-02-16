@@ -15,6 +15,8 @@ const getSession = async (request) => {
 
     if (err) throw err;
 
+    // await new Promise((res) => setTimeout(res, 100000));
+
     return [null, data];
   } catch (e) {
     if (e instanceof APIError || e instanceof FieldError) return [e, null];
@@ -45,8 +47,8 @@ export default async function loader({ request }) {
   const url = new URL(request.url);
   const searchParams = new URLSearchParams(url.search);
 
-  const gameSessionData = await getSession(request);
-  const currentGameData = getGame(request, searchParams);
+  const currentGameData = await getGame(request, searchParams);
+  const gameSessionData = getSession(request);
 
   return { gameSessionData, currentGameData };
 }

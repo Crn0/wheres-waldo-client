@@ -15,12 +15,12 @@ import Spinner from '../../components/ui/spinner';
 import BaseError from '../../errors/base-error';
 import style from './css/index.module.css';
 
-function Wrapper({ gameSessionData }) {
+function Wrapper({ gameData }) {
   const fetcher = useFetcher();
-  const gameData = useAsyncValue();
+  const gameSessionData = useAsyncValue();
 
-  const [_, gameSession] = gameSessionData;
   const [gameError, game] = gameData;
+  const [_, gameSession] = gameSessionData;
   const isSubmitting = fetcher.state === 'submitting';
 
   const gameSessionObj = useMemo(
@@ -131,8 +131,8 @@ export default function Game() {
   return (
     <div className={`${style.app}`}>
       <Suspense fallback={<Spinner styles={`${style.spinner}`} />}>
-        <Await resolve={currentGameData}>
-          <Wrapper gameSessionData={gameSessionData} />
+        <Await resolve={gameSessionData}>
+          <Wrapper gameData={currentGameData} />
         </Await>
       </Suspense>
       <Footer styles={`${style.flex} ${style.flex_center} ${style.padd_1} ${style.zIndex_1}`}>
@@ -149,29 +149,25 @@ export default function Game() {
 }
 
 Wrapper.propTypes = {
-  gameSessionData: PropTypes.arrayOf(
+  gameData: PropTypes.arrayOf(
     PropTypes.oneOfType([
+      PropTypes.instanceOf(Error),
       PropTypes.instanceOf(BaseError),
       PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        sessionStart: PropTypes.string.isRequired,
-        sessionEnd: PropTypes.string,
-        game: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          board: PropTypes.shape({
-            url: PropTypes.string.isRequired,
-          }).isRequired,
+        title: PropTypes.string.isRequired,
+        board: PropTypes.shape({
+          url: PropTypes.string.isRequired,
+          artist: PropTypes.string.isRequired,
         }).isRequired,
-        sessionCharacters: PropTypes.arrayOf(
+        targets: PropTypes.arrayOf(
           PropTypes.shape({
             id: PropTypes.number.isRequired,
             name: PropTypes.string.isRequired,
-            found: PropTypes.bool.isRequired,
             sprite: PropTypes.shape({
               url: PropTypes.string.isRequired,
             }).isRequired,
           }).isRequired,
-        ),
+        ).isRequired,
       }),
     ]),
   ),
