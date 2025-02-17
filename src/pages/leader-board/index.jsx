@@ -62,7 +62,7 @@ function Wrapper() {
                     key={leaderBoard.id}
                     type='button'
                     size='sm'
-                    styles={`${style.board} ${style.bg_none}`}
+                    styles={`${style.board} ${style.h_400px} ${style.bg_none}`}
                     onClick={handleClick(leaderBoard.id, index)}
                   >
                     <img
@@ -74,7 +74,7 @@ function Wrapper() {
                 ))}
               </div>
             </div>
-            <div>
+            <div className={`${style.flex} ${style.items_center} ${style.direct_column}`}>
               <h2
                 className={`${style.text_capitalize} ${style.text_center} ${style.m_top_2} ${style.clr_white}`}
               >

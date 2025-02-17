@@ -102,6 +102,10 @@
   display: flex;
 }
 
+.direct_column {
+  flex-direction: column;
+}
+
 .space_around {
   justify-content: space-around;
 }
@@ -136,6 +140,10 @@
 
 .h_100dvh {
   height: 100dvh;
+}
+
+.h_400px {
+  height: 400px;
 }
 
 .w_100 {
