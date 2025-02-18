@@ -19,7 +19,7 @@ function Wrapper() {
         if (games.length === 0) return <p>There are no games.</p>;
 
         return games.map((game) => (
-          <div key={game.id} className={` ${style.card}`}>
+          <div key={game.id} className={`${style.h_400} ${style.card}`}>
             <Card game={game} />
           </div>
         ));

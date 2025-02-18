@@ -86,6 +86,10 @@
   width: 350px;
 }
 
+.h_400 {
+  height: 450px;
+}
+
 @media (max-width: 781px) {
   .margin_bottom_2 {
     margin-bottom: 2rem;
@@ -96,5 +100,13 @@
   .card {
     width: 250px;
     transition: transform 0.9s ease-out 0.1s;
+  }
+}
+
+@media (max-width: 524px) {
+  .card:hover {
+    transform: scale(1.1);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }
