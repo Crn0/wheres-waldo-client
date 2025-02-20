@@ -46,7 +46,7 @@ export default async function loader({ request }) {
   const searchParams = new URLSearchParams(url.search);
   const game = searchParams.get('game');
 
-  if (game.toLocaleLowerCase() === 'complete') {
+  if (game?.toLocaleLowerCase() === 'complete') {
     return { gameSessionData: await getSession(request) };
   }
 

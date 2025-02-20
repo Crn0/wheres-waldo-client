@@ -5,9 +5,9 @@ import Spinner from '../../components/ui/spinner';
 import style from './css/index.module.css';
 
 function Wrapper() {
-  const [error, game] = useAsyncValue();
+  const [e, game] = useAsyncValue();
 
-  if (error) throw error;
+  if (e) throw e;
 
   return (
     <div className={` ${style.h_100dvh}`}>

@@ -11,13 +11,13 @@ import style from './css/index.module.css';
 
 function Wrapper() {
   const fetcher = useFetcher();
-  const [error, leaderBoards] = useAsyncValue();
+  const [e, leaderBoards] = useAsyncValue();
   const [activeCardIndex, setActiveCardIndex] = useState(0);
 
   const fetcherError = fetcher.data?.[0];
   const fetcherData = fetcher.data?.[1];
 
-  if (error) throw error;
+  if (e) throw e;
 
   const handleClick = useCallback(
     (leadBoardId, indexId) => () => {

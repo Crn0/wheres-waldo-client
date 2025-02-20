@@ -9,7 +9,9 @@ import Spinner from '../../components/ui/spinner';
 import style from './css/index.module.css';
 
 function Wrapper() {
-  const [_, games] = useAsyncValue();
+  const [e, games] = useAsyncValue();
+
+  if (e) throw e;
 
   return (
     <div

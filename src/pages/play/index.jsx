@@ -33,6 +33,8 @@ function Wrapper({ gameData }) {
 
   const allTargetsFound = targets?.every((target) => target.found === true);
 
+  if (gameError) throw gameError;
+
   useEffect(() => {
     if (!targets?.length && gameSessionObj?.sessionCharacters) {
       setTargets(gameSessionObj.sessionCharacters);
