@@ -3,7 +3,7 @@ import styles from './css/index.module.css';
 
 export default function ErrorHandler() {
   const error = useRouteError();
-  console.log(error);
+
   return (
     <>
       {(() => {
