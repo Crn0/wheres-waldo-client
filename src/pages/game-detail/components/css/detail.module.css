@@ -37,6 +37,7 @@
   border-radius: 10%;
   max-height: 50px;
   color: var(--modal-form-btn-color);
+  background: var(--btn-bg-color);
 
   border: 1px solid var(--modal-form-btn-border-color);
   box-shadow: var(--modal-form-btn-active-shadow);
