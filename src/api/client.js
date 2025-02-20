@@ -42,6 +42,10 @@ const fetchApi = async (url, method, headers, dataToSend, signal) => {
       throw new FieldError(data.message, data.errors, data.code);
     }
 
+    if (responce.status === 429) {
+      throw new APIError(data.message, data.code);
+    }
+
     if (data?.code >= 400) {
       throw new APIError(data.message, data.code);
     }
