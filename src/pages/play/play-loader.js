@@ -44,10 +44,13 @@ const getGame = async (request, searchParams) => {
 export default async function loader({ request }) {
   const url = new URL(request.url);
   const searchParams = new URLSearchParams(url.search);
-  const game = searchParams.get('game');
+  const state = searchParams.get('state');
 
-  if (game?.toLocaleLowerCase() === 'complete') {
-    return { gameSessionData: await getSession(request) };
+  if (state?.toLocaleLowerCase() === 'complete') {
+    return {
+      gameSessionData: await getSession(request),
+      currentGameData: await getGame(request, searchParams),
+    };
   }
 
   const currentGameData = await getGame(request, searchParams);
